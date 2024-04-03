@@ -1,4 +1,4 @@
-<img src="https://socialify.git.ci/aimanecouissi/job-portal-web-app/image?description=1&descriptionEditable=Django-based%20platform%20for%20job%20posting%20and%20application%20management.%20Simplifies%20hiring%20processes%20for%20companies%20and%20job%20seekers.&language=1&name=1&owner=1&theme=Auto" alt="job-portal-web-app" />
+<img src="https://socialify.git.ci/aimanecouissi/job-portal-web-app/image?description=1&forks=1&issues=1&language=1&name=1&owner=1&pulls=1&stargazers=1&theme=Auto" alt="job-portal-web-app" />
 
 # Job Portal Web Application 💼
 
