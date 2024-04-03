@@ -1,0 +1,142 @@
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+* {
+    scroll-behavior: smooth;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Varela Round', sans-serif;
+    background-color: #F0F2F5;
+    color: black;
+}
+
+.logo {
+    font-family: 'Pacifico', cursive;
+}
+
+.navbar-brand {
+    font-size: 40px !important;
+    color: crimson !important;
+}
+
+.navbar {
+    box-shadow: 0px 5px 12px rgba(0, 0, 0, 0.2);
+}
+
+.nav-item {
+    font-weight: bold !important;
+}
+
+.bgo {
+    background: #40E0D0;
+    background: -webkit-linear-gradient(to right, #FF0080, #FF8C00, #40E0D0);
+    background: linear-gradient(to right, #FF0080, #FF8C00, #40E0D0);
+    /*background-image: url("../img/bg.png");
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;*/
+}
+
+.bwo {
+    background-color: white;
+    border-radius: 15px;
+    border: solid 5px black;
+}
+
+.bw {
+    background-color: white;
+    border-radius: 15px;
+}
+
+.icon {
+    color: white;
+}
+
+.icon:hover {
+    color: white;
+}
+
+.ts {
+    text-shadow: 0px 0px 13px black;
+}
+
+.mycard {
+    border-radius: 30px;
+    transition: all ease 0.5s;
+}
+.mycard:hover {
+    transform: translateY(5px);
+}
+
+.rnb1 {
+    background: #40E0D0;
+    background: -webkit-linear-gradient(to right, #FF0080, #FF8C00, #40E0D0);
+    background: linear-gradient(to right, #FF0080, #FF8C00, #40E0D0);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.rnb2 {
+    background: #fc00ff;
+    background: -webkit-linear-gradient(to right, #00dbde, #fc00ff);
+    background: linear-gradient(to right, #00dbde, #fc00ff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.rnb3 {
+    background: #00c3ff;
+    background: -webkit-linear-gradient(to right, #ffff1c, #00c3ff);
+    background: linear-gradient(to right, #ffff1c, #00c3ff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.rnb4 {
+    background: #FC466B;
+    background: -webkit-linear-gradient(to right, #3F5EFB, #FC466B);
+    background: linear-gradient(to right, #3F5EFB, #FC466B);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.nbr {
+    height: 100px;
+    width: 100px;
+}
+
+.rnbb {
+    /*border-width: 7px;
+    border-style: solid;
+    border-image: linear-gradient(to right, #FF0080, #FF8C00, #40E0D0) 1;*/
+    background: 
+        linear-gradient(white, white) padding-box,
+        linear-gradient(to right, #FF0080, #FF8C00, #40E0D0) border-box;
+    border-radius: 15px;
+    border: 7px solid transparent;
+}
+
+.mycard2 {
+    transition: all ease 0.5s;
+}
+
+.mycard2:hover {
+    transform: scale(1.25);
+}
+
+.mycard3 {
+    transition: all ease 0.5s;
+}
+
+.mycard3:hover {
+    transform: rotate(360deg);
+}

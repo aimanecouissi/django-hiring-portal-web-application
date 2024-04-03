@@ -1,0 +1,82 @@
+{% extends 'base.html' %}
+{% block title %}Mon offre{% endblock %}
+{% block content %}
+<div class="bg">
+    <div class="container">
+        <div class="min-vh-100 row py-5">
+            <div class="col-7 mx-auto bw p-5 shadow-sm">
+                <h1 class="fw-bold text-center">Informations sur l'offre</h1>
+                <form method="post" autocomplete="off" id="frm" onsubmit="submitFormAjouterModifier(event);">
+                    {% csrf_token %}
+                    <div class="row g-2 mt-5">
+                        <div class="col-md-6">
+                            <div class="form-floating mb-2">
+                                <input type="email" class="form-control" name="id" value="{{offre.id}}" placeholder="N° de l'offre" readonly>
+                                <label>N° de l'offre</label>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-floating mb-2">
+                                <input type="date" class="form-control" name="date_offre" placeholder="Date de l'offre" value="{{date}}" readonly>
+                                <label>Date de l'offre</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-floating mb-2">
+                        <input type="text" class="form-control" name="titre" value="{{offre.titre}}" id="titre" placeholder="Titre de l'offre" required>
+                        <label>Titre de l'offre</label>
+                    </div>
+                    <div class="row g-2">
+                        <div class="col-md-6">
+                            <div class="form-floating mb-2">
+                                <input type="text" class="form-control" name="experiences" id="experiences" value="{{offre.experiences}}" placeholder="Expériences requises" required>
+                                <label>Expériences requises</label>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-floating mb-2">
+                                <input type="text" class="form-control" name="niveau" id="niveau" value="{{offre.niveau}}" placeholder="Niveau d'étude" required>
+                                <label>Niveau d'étude</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-floating mb-2">
+                        <input type="text" class="form-control" name="adresse" id="adresse" value="{{offre.adresse}}" placeholder="Adresse" required>
+                        <label>Adresse</label>
+                    </div>
+                    <div class="row g-2">
+                        <div class="col-md-6">
+                            <div class="form-floating mb-2">
+                                <input type="email" class="form-control" name="email" value="{{offre.email}}" placeholder="Email" required>
+                                <label>Email</label>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-floating mb-2">
+                                <input type="tel" class="form-control" name="telephone" value="{{offre.telephone}}" pattern="0[0-9]{9}" placeholder="Téléphone" required>
+                                <label>Téléphone</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-floating mb-2">
+                        <input type="date" class="form-control" name="dl" value="{{date2}}" placeholder="Date Limite" required>
+                        <label>Date Limite</label>
+                    </div>
+                    <div class="form-floating mb-2">
+                        <textarea wrap="hard" class="form-control" name="details" placeholder="Détails de l'offre" style="height: 250px" required>{{offre.details}}</textarea>
+                        <label>Détails de l'offre</label>
+                    </div>
+                    <div class="row gx-2 mt-2">
+                        <div class="col-md-6 d-grid">
+                            <button class="btn btn-success btn-block btn-lg" name="modifier">Modifier</button>
+                        </div>
+                        <div class="col-md-6 d-grid">
+                            <button class="btn btn-danger btn-block btn-lg" name="supprimer">Supprimer</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock%}

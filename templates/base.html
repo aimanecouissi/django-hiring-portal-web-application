@@ -1,0 +1,88 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wadifati | {% block title %}{% endblock %}</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="icon" type="image/x-icon" href="{% static 'img/favicon.ico' %}">
+    <script>
+        window.onload = function () {
+            var input = document.getElementById('usercon');
+            input.focus();
+            input.select();
+        }
+        function submitFormAccueil(event) {
+            if (document.getElementById("password1").value.length < 8 || document.getElementById("password2").value.length < 8) {
+                alert("Le mot de passe doit contenir au moins 8 caractères.");
+                event.preventDefault();
+            }
+            else {
+                document.getElementById("frm").submit();
+            }
+        }
+        function submitFormCV(event) {
+            msg = "";
+            if (document.getElementById("cin").value.length > 20) {
+                msg += "- La CIN ne doit pas dépasser 20 caractères.\n"
+            }
+            if (document.getElementById("sexe").value.length > 10) {
+                msg += "- Le sexe ne doit pas dépasser 10 caractères.\n"
+            }
+            if (document.getElementById("adresse").value.length > 100) {
+                msg += "- L'adresse ne doit pas dépasser 100 caractères.\n"
+            }
+            if(msg != "") {
+                alert(msg);
+                event.preventDefault();
+            }
+            else {
+                document.getElementById("frm").submit();
+            }
+        }
+        function submitFormAjouterModifier(event) {
+            msg = "";
+            if (document.getElementById("titre").value.length > 100) {
+                msg += "- Le titre de l'offre ne doit pas dépasser 100 caractères.\n"
+            }
+            if (document.getElementById("experiences").value.length > 100) {
+                msg += "- L'experiences requises ne doit pas dépasser 100 caractères.\n"
+            }
+            if (document.getElementById("niveau").value.length > 50) {
+                msg += "- Le niveau d'études ne doit pas dépasser 50 caractères.\n"
+            }
+            if (document.getElementById("adresse").value.length > 100) {
+                msg += "- L'adresse ne doit pas dépasser 100 caractères.\n"
+            }
+            if(msg != "") {
+                alert(msg);
+                event.preventDefault();
+            }
+            else {
+                document.getElementById("frm").submit();
+            }
+        }
+    </script>  
+</head>
+<body>
+    {% if '/' == request.path or 'connexion' in request.path %}
+        {% include 'parties/navbar_offline.html' %}
+    {% elif 'recruteur' in request.path %}
+        {% include 'parties/navbar_recruteur.html' %}
+    {% elif 'demandeur' in request.path %}
+        {% include 'parties/navbar_demandeur.html' %}
+    {% endif %}
+    {% block content %}{% endblock %}
+    {% include 'parties/footer.html' %}
+    <script>
+        $(document).ready(function(){
+            $('[data-toggle="tooltip"]').tooltip();
+        });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+</body>
+</html>

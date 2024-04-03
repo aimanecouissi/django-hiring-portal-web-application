@@ -1,0 +1,122 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Mon CV{% endblock %}
+{% block content %}
+<div class="bg">
+    <div class="container">
+        <div class="min-vh-100">
+            <h1 class="fw-bold text-center display-1 my-4"><span class="rnb1">Mon CV</span></h1>
+            <form method="post" enctype="multipart/form-data" autocomplete="off" onsubmit="submitFormCV(event);" id="frm">
+                {% csrf_token %}
+                <div class="row mt-3">
+                    <div class="col-lg-7 mx-auto bw p-5 shadow-sm text-center">
+                        <h1 class="fw-bold text-center mb-5">Informations de contact</h1>
+                        <label for="photo"><img class="border border-4 rounded-4 mb-2" src="{% if photo is None %}{% static 'img/photo.png' %}{% else %}{{photo.url}}{% endif %}" width="150px" height="150px" style="cursor: pointer;"></label>
+                        <input {{required}} class="form-control form-control-lg d-none" type="file" id="photo" name="photo" accept="image/*">
+                        <div class="row g-2">
+                            <div class="col-md-6">
+                                <div class="form-floating mt-2">
+                                    <input type="text" class="form-control" name="cin" id="cin" value="{{cin}}" placeholder="CIN" required>
+                                    <label>CIN</label>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-floating mt-2">
+                                    <input type="text" class="form-control" name="prenom_nom" value="{{nom_prenom}}" placeholder="Nom et prénom" readonly>
+                                    <label>Nom et prénom</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row g-2">
+                            <div class="col-md-6">
+                                <div class="form-floating mt-2">
+                                    <input type="date" class="form-control" name="date_naissance" value="{{date_naissance}}" placeholder="Date de naissance" required>
+                                    <label>Date de naissance</label>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-floating mt-2">
+                                    <select class="form-control" name="sexe" id="sexe"placeholder="Sexe" required>
+                                        <option {{sexeM}}>Male</option>
+                                        <option {{sexeF}}>Femelle</option>
+                                    </select>
+                                    <label>Sexe</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-floating mt-2">
+                            <input type="text" class="form-control" name="adresse" id="adresse" value="{{adresse}}" placeholder="Adresse" required>
+                            <label>Adresse</label>
+                        </div>
+                        <div class="row g-2">
+                            <div class="col-md-6">
+                                <div class="form-floating mt-2">
+                                    <input type="email" class="form-control" name="email" value="{{email}}" placeholder="Email" readonly>
+                                    <label>Email</label>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-floating mt-2">
+                                    <input type="tel" class="form-control" name="telephone" id="telephone" value="{{telephone}}" placeholder="Téléphone" pattern="0[0-9]{9}" required>
+                                    <label>Téléphone</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="d-grid mt-2">
+                            <button type="submit" class="btn btn-dark btn-lg btn-block">Enregistrer</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-lg-7 mx-auto bw p-5 shadow-sm">
+                        <div class="text-center">
+                            <h1 class="fw-bold mb-5">Informations du CV</h1>
+                            <div class="form-floating mt-2">
+                                <textarea wrap="hard" style="height: 150px" class="form-control" name="formations" placeholder="Formations" required>{{formations}}</textarea>
+                                <label>Formations</label>
+                            </div>
+                            <div class="form-floating mt-2">
+                                <textarea wrap="hard" style="height: 150px" class="form-control" name="competances" placeholder="Compétances" required>{{competances}}</textarea>
+                                <label>Compétences</label>
+                            </div>
+                            <div class="form-floating mt-2">
+                                <textarea wrap="hard" style="height: 150px" class="form-control" name="langues" placeholder="Langues" required>{{langues}}</textarea>
+                                <label>Langues</label>
+                            </div>
+                            <div class="form-floating mt-2">
+                                <textarea wrap="hard" style="height: 150px" class="form-control" name="certificats" placeholder="Certificat" required>{{certificats}}</textarea>
+                                <label>Certificats</label>
+                            </div>
+                        </div>
+                        <div class="d-grid mt-2">
+                            <button type="submit" class="btn btn-dark btn-lg btn-block">Enregistrer</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mt-3 mb-5">
+                    <div class="col-lg-7 mx-auto bw p-5 shadow-sm">
+                        <h1 class="fw-bold mb-5 text-center">Documents externes</h1>
+                        <div class="mt-2">
+                            <div class="row">
+                                <div class="col"><label class="form-label">Curriculum vitae</label></div>
+                                <div class="col text-end">{% if civi is not None %}<a href="{{civi.url}}" class="link-primary text-decoration-none">Voir mon CV</a>{% endif %}</div>
+                            </div>
+                            <input {{required}} class="form-control form-control-lg" type="file" name="civi">
+                        </div>
+                        <div class="mt-2">
+                            <div class="row">
+                                <div class="col"><label class="form-label">Lettre de motivation</label></div>
+                                <div class="col text-end">{% if lettre is not None %}<a href="{{lettre.url}}" class="link-primary text-decoration-none">Voir ma lettre de motivation</a>{% endif %}</div>
+                            </div>
+                            <input {{required}} class="form-control form-control-lg" type="file" name="lettre">
+                        </div>
+                        <div class="d-grid mt-2">
+                            <button type="submit" class="btn btn-dark btn-lg btn-block">Enregistrer</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock%}

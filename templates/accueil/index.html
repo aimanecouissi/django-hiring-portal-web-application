@@ -1,0 +1,129 @@
+{% extends 'base.html' %}
+{% block title %}Accueil{% endblock %}
+{% block content %}
+<div class="bgo">
+    <div class="container">
+        <div class="row g-5 min-vh-100 d-flex align-items-center">
+            <div class="col-lg-6 text-center py-5">
+                <div class="px-5 text-white">
+                    <p class="mb-4 logo display-1 ts"><i class="bi bi-briefcase-fill"></i> Wadifati</p>
+                    <p class="h3 mb-4 fw-bold">Site de recrutement gratuit au Maroc</p>
+                    <p class="h4">Nous sommes un site de recrutement au Maroc dédié à l’emploi. Un réseau social ouvert et gratuit pour tous pour les offres d'emploi au Maroc.</p>
+                </div>
+            </div>
+            <div class="col-lg-6 text-center py-5">
+                <form method="post" autocomplete="off" class="bwo shadow-lg p-5" id="frm" onsubmit="submitFormAccueil(event);">
+                    {% csrf_token %}
+                    <h1 class="text-center fw-bold">Inscription</h1>
+                    <div class="row mt-4">
+                        <div class="col-md-6">
+                            <input type="text" class="form-control form-control-lg" placeholder="Prénom" name="prenom" value="{{prenom}}" required>
+                        </div>
+                        <div class="col-md-6">
+                            <input type="text" class="form-control form-control-lg" placeholder="Nom" name="nom" value="{{nom}}" required>
+                        </div>
+                    </div>
+                    <input type="email" class="form-control form-control-lg mt-3" placeholder="Email" name="email" value="{{email}}" required>
+                    <input type="text" class="form-control form-control-lg mt-3" placeholder="Nom d'utilisateur" name="username" value="{{username}}" required>
+                    <input type="password" class="form-control form-control-lg mt-3" placeholder="Mot de passe" id="password1" name="password1" value="{{password1}}" required>
+                    <input type="password" class="form-control form-control-lg mt-3" placeholder="Confirmer le mot de passe" id="password2" name="password2" value="{{password2}}" required>
+                    <div class="d-grid gap-2">
+                        <button class="btn btn-dark mt-3 btn-lg btn-block" type="submit">S'inscrire</button>
+                    </div>
+                    {% include 'parties/messages.html'%}
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row my-5">
+        <div class="col-12 text-center">
+            <h1 class="fw-bold text-black">Nos meilleures entreprises</h1>
+        </div>
+    </div>
+    <div class="row g-5">
+        {% for t in top %}
+        <div class="col-sm-4 mx-auto text-center mycard2">
+                <img src="{{t.logo.url}}" width="100px" height="100px">
+                <h3 class="fw-bold text-truncate mt-4">{{t.entreprise}}</h3>
+        </div>
+        {% endfor %}
+    </div>
+    <div class="row py-5">
+        <div class="col-12 text-center">
+            <h1 class="fw-bold text-black">Derniers offres d'emploi</h1>
+        </div>
+    </div>
+    <div class="row g-5 ">
+        {% for o in ofr2 %}
+        <div class="col-lg-4 col-sm-6 mx-auto text-center">
+            <div class="mycard p-5 bg-white shadow-sm">
+                <img src="{{o.rec.logo.url}}" width="40px" height="40px">
+                <h3 class="fw-bold text-truncate">{{o.rec.entreprise}}</h3>
+                <h4 class="text-truncate">{{o.titre}}</h4>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    <div class="row py-5">
+        <div class="col-12 text-center">
+            <h1 class="fw-bold text-black">Nos derniers chiffres</h1>
+        </div>
+    </div>
+    <div class="row g-5 ">
+        <div class="col-lg-4 col-sm-6 mx-auto text-center">
+            <div class="mycard py-5 bg-danger text-white shadow-sm">
+                <h3>Plus de</h3>
+                <h1 class="fw-bold">{{rec}}</h1>
+                <h3>recruteurs</h3>
+            </div>
+        </div>
+        <div class="col-lg-4 col-sm-6 mx-auto text-center">
+            <div class="mycard py-5 bg-warning text-dark shadow-sm">
+                <h3>Plus de</h3>
+                <h1 class="fw-bold">{{dem}}</h1>
+                <h3>utilisateurs</h3>
+            </div>
+        </div>
+        <div class="col-lg-4 col-sm-6 mx-auto text-center">
+            <div class="mycard py-5 bg-success text-white shadow-sm">
+                <h3>Plus de</h3>
+                <h1 class="fw-bold">{{ofr}}</h1>
+                <h3>offres</h3>
+            </div>
+        </div>
+    </div>
+    <div class="row py-5">
+        <div class="col-12 text-center">
+            <h1 class="fw-bold text-black">Comment ça marche</h1>
+        </div>
+    </div>
+    <div class="row g-5 pb-5">
+        <div class="col-lg-4 col-sm-6 mx-auto text-center">
+            <div class="">
+                <div class="d-flex justify-content-center mb-4 ">
+                    <div class="mycard3 bg-danger nbr fw-bold fs-1 d-flex justify-content-center align-items-center text-white rounded-circle">1</div>
+                </div>
+                <h3>Je crée un nouveau compte</h3>
+            </div>
+        </div>
+        <div class="col-lg-4 col-sm-6 mx-auto text-center">
+            <div class="">
+                <div class="d-flex justify-content-center mb-4">
+                    <div class=" mycard3 bg-warning nbr fw-bold fs-1 d-flex justify-content-center align-items-center text-dark rounded-circle">2</div>
+                </div>
+                <h3>Je remplis mon CV</h3>
+            </div>
+        </div>
+        <div class="col-lg-4 col-sm-6 mx-auto text-center">
+            <div class="">
+                <div class="d-flex justify-content-center mb-4">
+                    <div class="mycard3 bg-success nbr fw-bold fs-1 d-flex justify-content-center align-items-center text-white rounded-circle">3</div>
+                </div>
+                <h3>Je choisis l'offre d'emploi qui me correspond</h3>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

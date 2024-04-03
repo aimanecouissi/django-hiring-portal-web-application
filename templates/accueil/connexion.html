@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% block title %}Connexion{% endblock %}
+{% block content %}
+<div class="bgo">
+    <div class="container">
+        <div class="row g-5 min-vh-100 d-flex align-items-center">
+            <div class="col-lg-6 text-center">
+                <div class="px-5 text-white">
+                    <p class="mb-4 logo display-1 ts"><i class="bi bi-briefcase-fill"></i> Wadifati</p>
+                    <p class="h3 mb-4 fw-bold">Site de recrutement gratuit au Maroc</p>
+                    <p class="h4">Nous sommes un site de recrutement au Maroc dédié à l’emploi. Un réseau social ouvert et gratuit pour tous pour les offres d'emploi au Maroc.</p>
+                </div>
+            </div>
+            <div class="col-lg-5 mx-auto py-5">
+                <form method="post" autocomplete="off" class="bwo shadow-lg p-5">
+                    {% csrf_token %}
+                    <h1 class="text-center fw-bold">Connexion</h1>
+                    <div class="input-group input-group-lg flex-nowrap mb-3 mt-4">
+                        <span class="input-group-text" id="addon-wrapping"><i class="bi bi-person-fill"></i></span>
+                        <input type="text" class="form-control" placeholder="Nom d'utilisateur" name="username" aria-label="Username" aria-describedby="addon-wrapping" value="{{username}}" id="usercon" required>
+                    </div>
+                    <div class="input-group input-group-lg flex-nowrap mb-3">
+                        <span class="input-group-text" id="addon-wrapping"><i class="bi bi-lock-fill"></i></span>
+                        <input type="password" class="form-control" placeholder="Mot de passe" name="password" aria-label="Password" aria-describedby="addon-wrapping" value="{{password}}" required>
+                    </div>
+                    <div class=" form-check">
+                        <input type="checkbox" class="form-check-input" id="exampleCheck1" name="remember" checked>
+                        <label class="form-check-label" for="exampleCheck1">Se rappeler de moi</label>
+                    </div>
+                    <div class="d-grid gap-2">
+                        <button type="submit" class=" btn btn-dark mt-3 btn-lg btn-block">Se connecter</button>
+                    </div>
+                    {% include 'parties/messages.html'%}
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

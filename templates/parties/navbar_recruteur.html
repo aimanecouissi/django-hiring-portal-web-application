@@ -1,0 +1,31 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top">
+    <div class="container">
+        <a class="rnb1 logo navbar-brand"><i class="bi bi-briefcase-fill"></i> Wadifati</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+            <ul class="navbar-nav mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link {% if '/recruteur/' == request.path %}active{% endif %}" href="{% url 'ajouter' %}"><i class="bi bi-patch-plus-fill"></i> Nouveau offre</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link {% if 'demande' in request.path %}active{% endif %}" href="{% url 'demandes' %}"><i class="bi bi-table"></i> Les demandes</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link {% if 'offre' in request.path %}active{% endif %}" href="{% url 'offres' %}"><i class="bi bi-folder-fill"></i> Mes offres</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle rnb4 {% if 'parametres' in request.path %}active{% endif %}" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        {{request.user.first_name}} {{request.user.last_name}} ({{nrec.entreprise}})
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="{% url 'parametres' %}">Informations Personnelles</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="{% url 'deconnexion' %}">Déconnexion</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
