@@ -19,7 +19,7 @@ Welcome to the Job Portal Web Application repository! This web application was d
 
 ## DEMO
 
-Explore the application in action by watching the video demonstration available in [my portfolio](https://www.aimanecouissi.com/).
+Explore the application in action by watching the video demonstration available in [YouTube](https://youtu.be/wzjV01i2Dl8).
 
 ## INSTALLATION
 
