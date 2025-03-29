@@ -1,6 +1,6 @@
-# JOB PORTAL WEB APPLICATION 💼
+# HIRING PORTAL WEB APPLICATION 💼
 
-Welcome to the Job Portal Web Application repository! This web application was developed as the end-of-year 3rd-year project. It offers an easy-to-use platform for companies to post job listings, manage resumes, and applications, simplifying the hiring process for both employers and job seekers.
+Welcome to the Hiring Portal Web Application repository! This web application was developed as the end-of-year 3rd-year project. It offers an easy-to-use platform for companies to post job listings, manage resumes, and applications, simplifying the hiring process for both employers and job seekers.
 
 ## FEATURES 🌟
 
