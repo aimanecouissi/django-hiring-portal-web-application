@@ -4,18 +4,18 @@ Welcome to the Hiring Portal Web Application repository! This web application wa
 
 ## FEATURES ✨
 
-- **Job Postings:** 📄 Companies can post job listings with detailed descriptions.
-- **Resume Management:** 📁 Job seekers can upload and manage their resumes.
-- **Application Tracking:** 📊 Employers can track and manage job applications efficiently.
-- **User Authentication:** 🔒 Secure authentication system for both employers and job seekers.
-- **Admin Dashboard:** 📊 Administrators can manage users, job listings, and applications.
+- **Job Postings** 📄 Companies can post job listings with detailed descriptions.
+- **Resume Management** 📁 Job seekers can upload and manage their resumes.
+- **Application Tracking** 📊 Employers can track and manage job applications efficiently.
+- **User Authentication** 🔒 Secure authentication system for both employers and job seekers.
+- **Admin Dashboard** 📊 Administrators can manage users, job listings, and applications.
 
 ## TECHNOLOGIES 🚀
 
-- **Django:** 🐍 High-level Python web framework used for backend development.
-- **PostgreSQL:** 🗄️ Powerful open-source relational database management system.
-- **HTML/CSS/JavaScript:** 🖥️ Frontend technologies for building the user interface.
-- **Bootstrap:** 📱 Frontend framework for designing responsive and mobile-first websites.
+- **Django** 🐍 High-level Python web framework used for backend development.
+- **PostgreSQL** 🗄️ Powerful open-source relational database management system.
+- **HTML/CSS/JavaScript** 🖥️ Frontend technologies for building the user interface.
+- **Bootstrap** 📱 Frontend framework for designing responsive and mobile-first websites.
 
 ## DEMO 🎬
 
