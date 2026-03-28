@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% block title %}Mes offres{% endblock %}
+{% block content %}
+<div class="bg">
+    <div class="container min-vh-100">
+        <h1 class="fw-bold text-center display-1 my-4"><span class="rnb1">Mes offres</span></h1>
+        <div class="text-center">
+            <button class="btn btn-dark btn-lg" data-bs-toggle="modal" data-bs-target="#exampleModal">Rechercher un offre</button>
+        </div>
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel"><i class="bi bi-search"></i> Rechercher par...</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                <form method="get" autocomplete="off">
+                    <div class="modal-body">
+                        <input type="text" name="titre" placeholder="Titre de l'offre" class="form-control form-control-lg mt-2">
+                        <input type="text" name="mot" placeholder="Mot-clé" class="form-control form-control-lg mt-2">
+                        <input type="date" name="date" placeholder="Date d'offre" class="form-control form-control-lg mt-2">
+                    </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+                            <button type="submit" class="btn btn-dark">Rechercher</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="row g-4 py-5">
+            {% for o in offres %}
+                <div class="col-lg-4">
+                    <div class="p-4 bw text-center shadow-sm">
+                        <h3 class="fw-bold text-truncate">{{o.titre}}</h5>
+                        <h5 class="mb-3">{{o.date_offre}}</h5>
+                        <a href="{% url 'offre' id_offre=o.id %}" class="btn btn-dark btn-block">Voir mon offre</a>
+                    </div>
+                </div>
+            {% endfor %}
+            {% include 'parties/messages.html'%}
+        </div>
+    </div>
+</div>
+{% endblock%}

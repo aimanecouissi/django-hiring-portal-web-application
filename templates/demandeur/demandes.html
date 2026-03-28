@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% block title %}Mes demandes{% endblock %}
+{% block content %}
+<div class="bg">
+    <div class="container min-vh-100 ">
+        <h1 class="fw-bold text-center display-1 my-4"><span class="rnb1">Mes demandes</span></h1>
+        <div class="row pb-5">
+            <div class="col-12 mx-auto text-center">
+                <form method="get" autocomplete="off">
+                    <div class="btn-group " role="group" aria-label="Basic mixed styles example">
+                        <button type="submit" data-placement="bottom" data-toggle="tooltip" title="Demandes validées" name="valide" class="btn btn-dark fw-bold btn-lg"><i class="bi bi-check-lg"></i></button>
+                        <button type="submit" data-placement="bottom" data-toggle="tooltip" title="Demandes en cours" name="cours" class="btn btn-dark fw-bold btn-lg"><i class="bi bi-hourglass-split"></i></button>
+                        <button type="submit" data-placement="bottom" data-toggle="tooltip" title="Demandes rejetées" name="rejete" class="btn btn-dark fw-bold btn-lg"><i class="bi bi-x-lg"></i></button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="row g-4 pb-5">
+            {% for d in demande %}
+            <div class="col-lg-4 col-md-4 col-sm-6">
+                <div class="p-4 bw text-center shadow-sm">
+                    <img src="{{d.ofr.rec.logo.url}}" width="40px" height="40px"><h3 class="fw-bold text-truncate">{{d.ofr.rec.entreprise}}</h3>
+                    <h4 class="text-truncate">{{d.ofr.titre}}</h4>
+                    <h5 class="mb-3">{{d.date_demande}}</h5>
+                    <a href="{% url 'demande2' id_demande=d.id %}" class="btn btn-dark position-relative">Voir ma demande
+                        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-{% if d.etat is True %}success{% elif d.etat is False %}danger{% else %}warning text-dark{% endif %}">
+                        {% if d.etat is True %}
+                            Validé
+                        {% elif d.etat is False %}
+                            Rejeté
+                        {% else %}
+                            En cours
+                        {% endif %}
+                        </span>
+                    </a>
+                </div>
+            </div>
+            {% endfor %}
+            {% include 'parties/messages.html'%}
+        </div>
+    </div>
+</div>
+{% endblock%}

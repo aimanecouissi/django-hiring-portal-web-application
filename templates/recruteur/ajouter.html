@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% block title %}Nouveau offre{% endblock %}
+{% block content %}
+<div class="bg">
+    <div class="container">
+        <div class="min-vh-100">
+            <h1 class="fw-bold text-center display-1 my-4"><span class="rnb1">Nouveau Offre</span></h1>
+            <div class="row pb-5">
+                <div class="col-lg-7 mx-auto">
+                    <form method="post" autocomplete="off" id="frm" onsubmit="submitFormAjouterModifier(event);">
+                        {% csrf_token %}
+                        {% include 'parties/messages.html'%}
+                        <input type="text" class="form-control form-control-lg mt-2" placeholder="Titre de l'offre" name="titre" id="titre" required>
+                        <div class="row g-2">
+                            <div class="col-md-6">
+                                <input type="text" class="form-control form-control-lg mt-2" id="experiences" placeholder="Expérience requise" name="experiences" required>
+                            </div>
+                            <div class="col-md-6">
+                                <input type="text" class="form-control form-control-lg mt-2" id="niveau" placeholder="Niveau d'étude et formation" name="niveau" required>
+                            </div>
+                        </div>
+                        <input type="text" class="form-control form-control-lg mt-2" id="adresse" placeholder="Adresse" name="adresse" required>
+                        <div class="row g-2">
+                            <div class="col-md-6">
+                                <input type="email" class="form-control form-control-lg mt-2" placeholder="Email" name="email" required>
+                            </div>
+                            <div class="col-md-6">
+                                <input type="tel" class="form-control form-control-lg mt-2" placeholder="Téléphone" pattern="0[0-9]{9}" name="telephone" required>
+                            </div>
+                        </div>
+                        <input type="date" class="form-control form-control-lg mt-2" min="{{datenow}}" placeholder="Date limite" name="dl" required>
+                        <textarea wrap="hard" class="form-control form-control-lg mt-2" name="details" id="details" name="details" cols="30" rows="10" placeholder="Détails" required></textarea>
+                        <div class="d-grid gap-2 mt-2 ">
+                            <button type="submit" class=" btn btn-dark btn-lg btn-block">Publier</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock%}

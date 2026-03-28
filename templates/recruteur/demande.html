@@ -1,0 +1,128 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Demande{% endblock %}
+{% block content %}
+<div class="bg">
+    <div class="container min-vh-100">
+        <div class="row pt-5">
+            <div class="col-7 mx-auto bw p-5 shadow-sm">
+                <h1 class="fw-bold text-center">Informations sur la demande</h1>
+                <div class="row mt-5">
+                    <label class="col text-end">N° de la demande</label>
+                    <div class="col">
+                        <p>{{demande.id}}</p>   
+                    </div>
+                </div>
+                <div class="row">
+                    <label class="col text-end">Date de la demande</label>
+                    <div class="col">
+                        <p>{{demande.date_demande}}</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <label class="col text-end">Titre de l'offre concerné</label>
+                    <div class="col">
+                        <p><a class="link link-dark "href="{% url 'offre' id_offre=demande.ofr_id %}">{{demande.ofr.titre}}</a></p>
+                    </div>
+                </div>
+                <div class="row">
+                    <label class="col text-end">Date de l'offre</label>
+                    <div class="col">
+                        <p>{{demande.ofr.date_offre}}</p>
+                    </div>
+                </div>
+                {% include 'parties/messages.html'%}
+            </div>
+        </div>
+        <div class="row pb-5 mt-3">
+            <div class="col-7 mx-auto bw p-5 shadow-sm">
+                <h1 class="text-center fw-bold">CV du demandeur</h1>
+                <div class="row mt-5">
+                    <div class="col-6 mx-auto text-center">
+                        <img class="border border-4 rounded-4" src="{{cv.photo.url}}" alt="" width="150px" height="150px">
+                    </div>
+                </div>
+                <div class="row g-2 mt-2">
+                    <div class="col">
+                        <div class="form-floating">
+                            <input type="text" class="form-control" name="cin" value="{{cv.cin}}" placeholder="CIN" readonly>
+                            <label>CIN</label>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="form-floating">
+                            <input type="text" class="form-control" name="prenom_nom" value="{{demande.dem.last_name}} {{demande.dem.first_name}}" placeholder="Nom et prénom" readonly>
+                            <label>Nom et prénom</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row g-2">
+                    <div class="col">
+                        <div class="form-floating mt-2">
+                            <input type="text" class="form-control" name="date_naissance" value="{{cv.date_naissance}}" placeholder="Date de naissance" readonly>
+                            <label>Date de naissance</label>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="form-floating mt-2">
+                            <input type="text" class="form-control" name="sexe" value="{{cv.sexe}}" placeholder="Sexe" readonly>
+                            <label>Sexe</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-floating mt-2">
+                    <input type="text" class="form-control" name="adresse" value="{{cv.adresse}}" placeholder="Adresse" readonly>
+                    <label>Adresse</label>
+                </div>
+                <div class="row g-2">
+                    <div class="col">
+                        <div class="form-floating mt-2">
+                            <input type="email" class="form-control" name="email" value="{{demande.dem.email}}" placeholder="Email" readonly>
+                            <label>Email</label>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="form-floating mt-2">
+                            <input type="tel" class="form-control" name="telephone" value="{{cv.telephone}}" placeholder="Téléphone" readonly>
+                            <label>Téléphone</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-floating mt-2">
+                    <textarea wrap="hard" style="height: 150px" class="form-control" name="formations" placeholder="Formations" readonly>{{cv.formations}}</textarea>
+                    <label>Formations</label>
+                </div>
+                <div class="form-floating mt-2">
+                    <textarea wrap="hard" style="height: 150px" class="form-control" name="competances" placeholder="Compétances" readonly>{{cv.competances}}</textarea>
+                    <label>Compétences</label>
+                </div>
+                <div class="form-floating mt-2">
+                    <textarea wrap="hard" style="height: 150px" class="form-control" name="langues" placeholder="Langues" readonly>{{cv.langues}}</textarea>
+                    <label>Langues</label>
+                </div>
+                <div class="form-floating mt-2">
+                    <textarea wrap="hard" style="height: 150px" class="form-control" name="certificats" placeholder="Certificat" readonly>{{cv.certificats}}</textarea>
+                    <label>Certificats</label>
+                </div>
+                <div class="mt-4">
+                    <ul>
+                        <li><label class="form-label">CV en format fichier :&nbsp;</label><a href="{{cv.civi.url}}" class="link-primary text-decoration-none">Voir le CV</a></li>
+                        <li><label class="form-label">Lettre de motivation :&nbsp;</label><a href="{{cv.lettre.url}}" class="link-primary text-decoration-none">Voir la lettre de motivation</a></li>
+                    </ul>
+                </div>
+                <form method="post" autocomplete="off">
+                    {% csrf_token %}
+                    <div class="row mt-2 gx-2 text-center">
+                        <div class="col-md-6 d-grid">
+                            <button type="submit" name="valider" class="btn btn-success btn-lg btn-block">Valider</button>
+                        </div>
+                        <div class="col-md-6 d-grid">
+                            <button type="submit" name="rejeter" class="btn btn-danger btn-lg btn-block">Rejeter</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock%}

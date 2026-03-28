@@ -1,0 +1,30 @@
+<nav class="navbar navbar-expand-md navbar-light bg-white sticky-top">
+    <div class="container">
+        <a class="rnb1 logo navbar-brand" id="brand" href="{% url 'index' %}"><i class="bi bi-briefcase-fill"></i> Wadifati</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+            <button class="btn btn-outline-secondary me-3" data-bs-toggle="modal" data-bs-target="#insrec">Pour les recruteurs</button>
+            <a href="{% url 'connexion' %}" class="btn btn-dark">Connexion</a>
+        </div>
+    </div>
+</nav>
+<div class="modal fade" id="insrec" tabindex="-1" aria-labelledby="ModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="ModalLabel">Inscription des recruteurs</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>- Les recruteurs ne peuvent pas créer un compte comme les autres utilisateurs. Pour le faire, ils doivent nous renseigner les informations et les documents qui prouvent qu’ils sont des entreprises, et puis nous les contactons leurs informations de connexion par email après une vérification.</p>
+                <p>- Si vous êtes une entreprise, Veuillez nous renseigner ces informations sur l’email suivant <span class="text-dark"><i class="bi bi-envelope-fill"></i> : <a href="mailto:contact@wadifati.ma" class="link-dark">contact@wadifati.ma</a></span></p>
+                <p>- Nous vous répondrons dans un délai de 48h maximum.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+            </div>
+        </div>
+    </div>
+</div>
