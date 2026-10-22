@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+{% block title %}Offre{% endblock %}
+{% block content %}
+<div class="bg">
+    <div class="container">
+        <div class="min-vh-100 row py-5">
+            <div class="col-lg-7 mx-auto bw p-5 shadow-sm">
+                <div class="mb-3 text-center">
+                    <img class="rounded mb-3" src="{{offre.rec.logo.url}}" width="100px" height="100px">
+                    <h1 class="fw-bold mb-0">{{offre.rec.entreprise}}</h1>
+                    <p class="h5 mt-0">{{offre.rec.secteur}}</p>
+                </div>
+                {% include 'parties/messages.html'%}
+                <form method="post" autocomplete="off">
+                    {% csrf_token %}
+                    <div class="row mt-4">
+                        <label class="col-md-4 col-form-label">Titre de l'offre</label>
+                        <div class="col">
+                            <input type="text" class="form-control" value="{{offre.titre}}" readonly>
+                        </div>
+                    </div>
+                    <div class="row mt-2">
+                        <label class="col-md-4 col-form-label">Date de l'offre</label>
+                        <div class="col">
+                            <input type="text" class="form-control" value="{{offre.date_offre}}" readonly>
+                        </div>
+                    </div>
+                    <div class="row mt-2">
+                        <label class="col-md-4 col-form-label">Expériences requises</label>
+                        <div class="col">
+                            <input type="text" class="form-control" value="{{offre.experiences}}" readonly>
+                        </div>
+                    </div>
+                    <div class="row mt-2">
+                        <label class="col-md-4 col-form-label">Niveau d'étude</label>
+                        <div class="col">
+                            <input type="text" class="form-control" value="{{offre.niveau}}" readonly>
+                        </div>
+                    </div>
+                    <div class="row mt-2">
+                        <label class="col-md-4 col-form-label">Adresse</label>
+                        <div class="col">
+                            <input type="text" class="form-control" value="{{offre.adresse}}" readonly>
+                        </div>
+                    </div>
+                    <div class="row mt-2">
+                        <label class="col-md-4 col-form-label">Email</label>
+                        <div class="col">
+                            <input type="email" class="form-control" value="{{offre.email}}" readonly>
+                        </div>
+                    </div>
+                    <div class="row mt-2">
+                        <label class="col-md-4 col-form-label">Téléphone</label>
+                        <div class="col">
+                            <input type="tel" class="form-control" value="{{offre.telephone}}" readonly>
+                        </div>
+                    </div>
+                    <div class="row mt-2">
+                        <label class="col-md-4 col-form-label">Postuler avant</label>
+                        <div class="col">
+                            <input type="text" class="form-control" value="{{offre.date_limite}}" readonly>
+                        </div>
+                    </div>
+                    <div class="row mt-2">
+                        <label class="col-md-4 col-form-label">Détails</label>
+                        <div class="col">
+                            <textarea wrap="hard" rows="10" class="form-control" readonly >{{offre.details}}</textarea>
+                        </div>
+                    </div>
+                    <div class="row mt-2">
+                        <div class="offset-4 col-8 d-grid gap-2">
+                            <button type="submit" class="btn btn-dark btn-block" {{dis}}>Envoyer mon CV</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock%}

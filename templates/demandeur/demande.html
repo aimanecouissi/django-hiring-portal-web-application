@@ -1,0 +1,121 @@
+{% extends 'base.html' %}
+{% block title %}Ma demande{% endblock %}
+{% block content %}
+<div class="bg">
+    <div class="container min-vh-100">
+        <div class="row pt-5 pb-3">
+            <div class="col-7 mx-auto bw p-5 shadow-sm">
+                <div class="text-center">
+                    <h1 class="fw-bold mb-5">Informations sur la demande</h1>
+                </div>
+                <div class="row">
+                    <label class="col text-end">N° de la demande</label>
+                    <div class="col">
+                        <p>{{demande.id}}</p>   
+                    </div>
+                </div>
+                <div class="row">
+                    <label class="col text-end">Date de la demande</label>
+                    <div class="col">
+                        <p>{{demande.date_demande}}</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <label class="col text-end">Etat de la demande</label>
+                    <div class="col">
+                        {% if demande.etat is True %}
+                            <p style="color: green;"><i class="bi bi-check-circle-fill"></i> Validé</p>
+                        {% elif demande.etat is False %}
+                            <p style="color: red;"><i class="bi bi-x-circle-fill"></i> Rejeté</p>
+                        {% else %}
+                            <p style="color: darkorange;"><i class="bi bi-hourglass-split"></i> En cours de traitement</p>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row pb-5">
+            <div class="col-7 mx-auto bw p-5 shadow-sm">
+                <div class="text-center">
+                    <h1 class="fw-bold mb-5">Informations sur l'offre</h1>
+                    <img class="rounded mb-5" src="{{demande.ofr.rec.logo.url}}" width="100px" height="100px">
+                </div>
+                <form method="post" autocomplete="off">
+                    {% csrf_token %}
+                    <div class="row mt-2">
+                        <label class="col-md-4 col-form-label">Recruteur</label>
+                        <div class="col">
+                            <input type="text" class="form-control" value="{{demande.ofr.rec.entreprise}}" readonly>
+                        </div>
+                    </div>
+                    <div class="row mt-2">
+                        <label class="col-md-4 col-form-label">Secteur d'activitée</label>
+                        <div class="col">
+                            <input type="text" class="form-control" value="{{demande.ofr.rec.secteur}}" readonly>
+                        </div>
+                    </div>
+                    <div class="row mt-2">
+                        <label class="col-md-4 col-form-label">Titre de l'offre</label>
+                        <div class="col">
+                            <input type="text" class="form-control" value="{{demande.ofr.titre}}" readonly>
+                        </div>
+                    </div>
+                    <div class="row mt-2">
+                        <label class="col-md-4 col-form-label">Date de l'offre</label>
+                        <div class="col">
+                            <input type="text" class="form-control" value="{{demande.ofr.date_offre}}" readonly>
+                        </div>
+                    </div>
+                    <div class="row mt-2">
+                        <label class="col-md-4 col-form-label">Expériences requises</label>
+                        <div class="col">
+                            <input type="text" class="form-control" value="{{demande.ofr.experiences}}" readonly>
+                        </div>
+                    </div>
+                    <div class="row mt-2">
+                        <label class="col-md-4 col-form-label">Niveau d'étude</label>
+                        <div class="col">
+                            <input type="text" class="form-control" value="{{demande.ofr.niveau}}" readonly>
+                        </div>
+                    </div>
+                    <div class="row mt-2">
+                        <label class="col-md-4 col-form-label">Adresse</label>
+                        <div class="col">
+                            <input type="text" class="form-control" value="{{demande.ofr.adresse}}" readonly>
+                        </div>
+                    </div>
+                    <div class="row mt-2">
+                        <label class="col-md-4 col-form-label">Email</label>
+                        <div class="col">
+                            <input type="email" class="form-control" value="{{demande.ofr.email}}" readonly>
+                        </div>
+                    </div>
+                    <div class="row mt-2">
+                        <label class="col-md-4 col-form-label">Téléphone</label>
+                        <div class="col">
+                            <input type="tel" class="form-control" value="{{demande.ofr.telephone}}" readonly>
+                        </div>
+                    </div>
+                    <div class="row mt-2">
+                        <label class="col-md-4 col-form-label">Postuler avant</label>
+                        <div class="col">
+                            <input type="text" class="form-control" value="{{demande.ofr.date_limite}}" readonly>
+                        </div>
+                    </div>
+                    <div class="row mt-2">
+                        <label class="col-md-4 col-form-label">Détails</label>
+                        <div class="col">
+                            <textarea wrap="hard" rows="10" class="form-control" readonly >{{demande.ofr.details}}</textarea>
+                        </div>
+                    </div>
+                    <div class="row mt-2">
+                        <div class="offset-4 col-8 d-grid gap-2">
+                            <button type="submit" class="btn btn-danger btn-block">Supprimer la demande</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock%}

@@ -1,0 +1,86 @@
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+
+#header {
+    background-color: white;
+    color: black;
+    border-bottom: black 5px solid;
+}
+
+#head {
+    color: crimson !important;
+    font-family: 'Pacifico', cursive;
+}
+
+#header a:link, #header a:visited {
+    color: black !important;
+}
+
+.module h2, .module caption, .inline-group h2 {
+    
+    background: black !important;
+}
+
+#content-related .module h2 {
+    color: white !important;
+}
+
+a:link, a:visited {
+    color: black !important
+}
+
+a.section:link, a.section:visited {
+    color: white !important
+}
+
+h1 {
+    color: black !important;
+}
+
+div.breadcrumbs {
+    background: black !important;
+    color: white !important;
+}
+
+div.breadcrumbs a {
+    color: white !important;
+}
+
+#user-tools a {
+    border-bottom: 1px solid black !important;
+}
+
+.object-tools a.addlink {
+    color: white !important;
+}
+
+.object-tools a:link, .object-tools a:visited {
+    color: white !important;
+}
+
+.submit-row a.deletelink {
+    color: white !important;
+}
+
+.selector .selector-available h2 {
+    color: white !important
+}
+
+.button.default, input[type=submit].default, .submit-row input.default {
+    background: black !important;
+}
+
+.button:active, input[type=submit]:active, input[type=button]:active, .button:focus, input[type=submit]:focus, input[type=button]:focus, .button:hover, input[type=submit]:hover, input[type=button]:hover {
+    background: gray !important;
+}
+
+.button, input[type=submit], input[type=button], .submit-row input, a.button {
+    background: gray !important;
+}
+
+#changelist .actions .button {
+    color: white !important;
+}
+
+#toolbar form input[type="submit"] {
+    color: white !important;
+}
